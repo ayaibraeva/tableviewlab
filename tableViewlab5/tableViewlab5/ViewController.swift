@@ -18,14 +18,14 @@ class ViewController: UIViewController {
     @IBAction func searchButton(_ sender: UIButton) {
         tableView.refreshControl = refreshControl
         downloadMovies()
+       
     }
     
    
     
     
-    var search = ""
-    var searchResults:[String] = []
-    var page = 0
+   var totalFilm: Int = 0
+    var page = 1
     var selectedFilmImdbID: String?
     lazy var refreshControl: UIRefreshControl = {
             let view = UIRefreshControl()
@@ -33,10 +33,9 @@ class ViewController: UIViewController {
             return view
         }()
         
-        // MARK: - Variables
         var movies: [Movie] = []
         
-        // MARK: - Lifecyle
+      
         override func viewDidLoad() {
             super.viewDidLoad()
             
@@ -44,7 +43,7 @@ class ViewController: UIViewController {
             downloadMovies()
         }
         
-        // MARK: - Actions
+        
         @objc func downloadMovies() {
             MovieService.sharedinstance.downloadMovies(searchText: searchBF.text!) { response in
                 self.movies = response.movies
@@ -52,7 +51,8 @@ class ViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
-   
+    
+    
     
     }
 
@@ -72,6 +72,7 @@ class ViewController: UIViewController {
             
             return cell
         }
+       
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             self.selectedFilmImdbID = self.movies[indexPath.row].id
             self.performSegue(withIdentifier: "showDetails", sender: self)
@@ -83,17 +84,18 @@ class ViewController: UIViewController {
                }
            }
 
-         // func scrollViewDidScroll(_ scrollView: UIScrollView) {
-           //  if(tableView.contentOffset.y >= (tableView.contentSize.height - tableView.frame.size.height)) {
-             //     page = page+1
-               // downloadMovies(searchText: searchBF.text!, page: page)
-              //}
-          //}
+       // func scrollViewDidScroll(_ scrollView: UIScrollView) {
+       //   if(tableView.contentOffset.y >= (tableView.contentSize.height - tableView.frame.size.height)) {
+        //       page = page+1
+        //      downloadMovies(searchText: searchWord, page: page)
+       //     }
+      //  }
   
           
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             return 132
         }
+        
              
             }
         
