@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F09B3D62443E2BF0002734D /* Detail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F09B3D52443E2BF0002734D /* Detail.swift */; };
 		8F7DCE8524436A7C00DEA1E7 /* MovieViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7DCE8424436A7C00DEA1E7 /* MovieViewController1.swift */; };
 		8FA0033224433E2100968FA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA0033124433E2100968FA8 /* AppDelegate.swift */; };
 		8FA0033424433E2100968FA8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA0033324433E2100968FA8 /* SceneDelegate.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8F09B3D52443E2BF0002734D /* Detail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Detail.swift; sourceTree = "<group>"; };
 		8F7DCE8424436A7C00DEA1E7 /* MovieViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController1.swift; sourceTree = "<group>"; };
 		8FA0032E24433E2100968FA8 /* tableViewlab5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tableViewlab5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FA0033124433E2100968FA8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 				8FA0036524433F9100968FA8 /* MovieService.swift */,
 				8FA0036724433FA200968FA8 /* ImageService.swift */,
 				8F7DCE8424436A7C00DEA1E7 /* MovieViewController1.swift */,
+				8F09B3D52443E2BF0002734D /* Detail.swift */,
 			);
 			path = tableViewlab5;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			files = (
 				8FA0036624433F9100968FA8 /* MovieService.swift in Sources */,
 				8FA0033624433E2100968FA8 /* ViewController.swift in Sources */,
+				8F09B3D62443E2BF0002734D /* Detail.swift in Sources */,
 				8FA0033224433E2100968FA8 /* AppDelegate.swift in Sources */,
 				8FA0036224433F3200968FA8 /* MovieTableViewCell.swift in Sources */,
 				8FA0033424433E2100968FA8 /* SceneDelegate.swift in Sources */,

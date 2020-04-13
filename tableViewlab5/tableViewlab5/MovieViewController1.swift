@@ -15,17 +15,32 @@ class MovieViewController1: UIViewController {
     @IBOutlet weak var poster2: UIImageView!
     
     
+    @IBOutlet weak var directorlbl: UILabel!
     
-    var film: Movie!
+    @IBOutlet weak var actorlbl: UILabel!
+    
+    
+    @IBOutlet weak var awardlbl: UILabel!
+    @IBOutlet weak var genrelbl: UILabel!
+    var filmImdbId: String?
+
        override func viewDidLoad() {
               super.viewDidLoad()
-              updateUI()
+             loadData()
               
           }
-            func updateUI(){
-               self.TitleLbl.text = film.title
-               
-               ImageService.shared.downloadImage(url: film.posterURL) { image in
+    func loadData(){
+        MovieService.sharedinstance.searchByID(searchText: filmImdbId!) { (result) in
+            self.updateUI(film: result)
+        }
+    }
+    func updateUI(film: Detail){
+               self.TitleLbl.text = film.Title
+        self.directorlbl.text = film.Director
+        self.actorlbl.text = film.Actors
+        self .genrelbl.text = film.Genre
+        self.awardlbl.text = film.Awards
+               ImageService.shared.downloadImage(url: film.Poster) { image in
                    self.poster2.image = image
                }
            }

@@ -38,6 +38,33 @@ class MovieService {
         }
         task.resume()
     }
+    func searchByID(searchText: String, completion: @escaping (Detail) -> Void) {
+        guard let url = URL(string:  "https://www.omdbapi.com/?apikey=7ace6494&i=\(searchText)&r=json") else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data else {
+                if let error = error {
+                    print(error)
+                }
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let response = try decoder.decode(Detail.self, from: data)
+                
+                DispatchQueue.main.async {
+                    completion(response)
+                }
+            } catch {
+                print(error)
+            }
+        }
+        task.resume()
+    }
 }
   
     class DownloadFilmsResponse: Codable {
@@ -49,7 +76,6 @@ class MovieService {
             case totalResults
         }
     }
-
 
 
  //   func searchByImdbID(search: String, onCompletion: @escaping (Film) -> Void) {

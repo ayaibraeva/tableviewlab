@@ -1,5 +1,5 @@
 //
-//  FilmBD.swift
+//  Detail.swift
 //  tableViewlab5
 //
 //  Created by Ayaulym Ibrayeva on 4/13/20.
@@ -7,7 +7,7 @@
 //
 
 import Foundation
-struct FilmBD :Decodable{
+struct Detail :Decodable{
     let Title: String
     let Year: String
     let Rated: String
@@ -22,6 +22,7 @@ struct FilmBD :Decodable{
     let Country: String
     let Awards: String
     let Poster: String
+    let Ratings: [Ratings]
     let Metascore: String
     let imdbRating: String
     let imdbVotes: String
@@ -32,5 +33,10 @@ struct FilmBD :Decodable{
     let Production: String
     let Website: String
     let Response: String
+}
+
+struct Ratings : Decodable {
+    let Source: String
+    let Value: String
 }
 

@@ -26,6 +26,7 @@ class ViewController: UIViewController {
     var search = ""
     var searchResults:[String] = []
     var page = 0
+    var selectedFilmImdbID: String?
     lazy var refreshControl: UIRefreshControl = {
             let view = UIRefreshControl()
             view.addTarget(self, action: #selector(downloadMovies), for: .valueChanged)
@@ -72,14 +73,16 @@ class ViewController: UIViewController {
             return cell
         }
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-               performSegue(withIdentifier: "showDetails", sender: self)
-           }
-           override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-           
-               if let destination = segue.destination as? MovieViewController1{
-                destination.film = movies[(tableView.indexPathForSelectedRow?.row)!]
+            self.selectedFilmImdbID = self.movies[indexPath.row].id
+            self.performSegue(withIdentifier: "showDetails", sender: self)
+        }
+         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+               if segue.identifier == "showDetails" {
+                   let vc = segue.destination as! MovieViewController1
+                   vc.filmImdbId = self.selectedFilmImdbID
                }
            }
+
          // func scrollViewDidScroll(_ scrollView: UIScrollView) {
            //  if(tableView.contentOffset.y >= (tableView.contentSize.height - tableView.frame.size.height)) {
              //     page = page+1
